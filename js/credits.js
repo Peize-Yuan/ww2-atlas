@@ -1,0 +1,243 @@
+window.WW2 = window.WW2 || {};
+window.WW2.credits = {
+  "battle-britain": {
+    "artist": "Australian armed forces",
+    "license": "Public domain",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Spitfire_and_He_111_during_Battle_of_Britain_1940.jpg",
+    "commons_title": "File:Spitfire and He 111 during Battle of Britain 1940.jpg"
+  },
+  "battle-midway": {
+    "artist": "United States Army Air Forces (USAAF)",
+    "license": "Public domain",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Japanese_aircraft_carrier_S%C5%8Dry%C5%AB_underway_during_Battle_of_Midway_on_4_June_1942.jpg",
+    "commons_title": "File:Japanese aircraft carrier Sōryū underway during Battle of Midway on 4 June 1942.jpg"
+  },
+  "battle-stalingrad": {
+    "artist": "Zelma / Георгий Зельма",
+    "license": "CC BY-SA 3.0",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:RIAN_archive_602770_Battle_of_Stalingrad.jpg",
+    "commons_title": "File:RIAN archive 602770 Battle of Stalingrad.jpg"
+  },
+  "battle-kursk": {
+    "artist": "Red Army photographer?",
+    "license": "CC BY 4.0",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Soviet_M3_Lee_tanks_of_the_6th_Guards_Army_Kursk_July_1943.jpg",
+    "commons_title": "File:Soviet M3 Lee tanks of the 6th Guards Army Kursk July 1943.jpg"
+  },
+  "battle-bagration": {
+    "artist": "Kl833x9",
+    "license": "CC BY-SA 3.0",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Operation_bagration_battle_wizebsk_1944_june_22-27.png",
+    "commons_title": "File:Operation bagration battle wizebsk 1944 june 22-27.png"
+  },
+  "battle-iwojima": {
+    "artist": "Taken by a Fifth Marine Division photographer.",
+    "license": "Public domain",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marines_with_LVT(A)-5_in_Iwo_Jima_1945.jpg",
+    "commons_title": "File:Marines with LVT(A)-5 in Iwo Jima 1945.jpg"
+  },
+  "eq-tiger": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ABundesarchiv_Bild_101I-571-1721-29%2C_Russland%2C_Panzer_VI_%28Tiger_I%29.jpg",
+    "commons_title": "File:Bundesarchiv Bild 101I-571-1721-29, Russland, Panzer VI (Tiger I).jpg"
+  },
+  "eq-sherman": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ACrew_of_a_Sherman-tank_south_of_Vaucelles.jpg",
+    "commons_title": "File:Crew of a Sherman-tank south of Vaucelles.jpg"
+  },
+  "eq-panther": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ACaptured_German_Panther_tank_crewman_1944.jpg",
+    "commons_title": "File:Captured German Panther tank crewman 1944.jpg"
+  },
+  "eq-t34": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tank_T-34.JPG",
+    "commons_title": "File:Tank T-34.JPG"
+  },
+  "eq-spitfire": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:602sqdn-spit1.jpg",
+    "commons_title": "File:602sqdn-spit1.jpg"
+  },
+  "eq-b17": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:B17-F-45-VE_%28cropped%29.jpg",
+    "commons_title": "File:B17-F-45-VE (cropped).jpg"
+  },
+  "eq-il2": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ilyushin_IL-2_Sturmovik_at_Central_Air_Force_Museum_Monino_pic1_a.jpg",
+    "commons_title": "File:Ilyushin IL-2 Sturmovik at Central Air Force Museum Monino pic1 a.jpg"
+  },
+  "eq-me262": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Messerschmitt_Me_262.jpg",
+    "commons_title": "File:Messerschmitt Me 262.jpg"
+  },
+  "person-roosevelt": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:FDR_1944_Color_Portrait_(cropped).jpg",
+    "commons_title": "File:FDR 1944 Color Portrait (cropped).jpg"
+  },
+  "person-churchill": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Sir_Winston_S_Churchill_(cropped).jpg",
+    "commons_title": "File:Sir Winston S Churchill (cropped).jpg"
+  },
+  "person-stalin": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:CroppedStalin1943.jpg",
+    "commons_title": "File:CroppedStalin1943.jpg"
+  },
+  "person-chiang": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Chiang_Kai-shek.jpg",
+    "commons_title": "File:Chiang Kai-shek.jpg"
+  },
+  "person-hitler": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Adolf_Hitler_cropped_restored.jpg",
+    "commons_title": "File:Adolf Hitler cropped restored.jpg"
+  },
+  "person-hirohito": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Hirohito_in_dress_uniform.jpg",
+    "commons_title": "File:Hirohito in dress uniform.jpg"
+  },
+  "person-macarthur": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:DouglasMacArthur.jpg",
+    "commons_title": "File:DouglasMacArthur.jpg"
+  },
+  "person-mussolini": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Benito_Mussolini_colored.jpg",
+    "commons_title": "File:Benito Mussolini colored.jpg"
+  },
+  "person-patton": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:George_S._Patton.jpg",
+    "commons_title": "File:George S. Patton.jpg"
+  },
+  "person-montgomery": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:General_Sir_Bernard_Montgomery_in_England,_1943_(cropped).jpg",
+    "commons_title": "File:General Sir Bernard Montgomery in England, 1943 (cropped).jpg"
+  },
+  "person-degaulle": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:De_Gaulle-OWI_(cropped)-(c).jpg",
+    "commons_title": "File:De Gaulle-OWI (cropped)-(c).jpg"
+  },
+  "person-eisenhower": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:(Photograph_of_General_Dwight_D._Eisenhower_Seated_at_His_Desk)_-_DPLA_-_708598a959455c20ea7b234be97925f6.jpg",
+    "commons_title": "File:(Photograph of General Dwight D. Eisenhower Seated at His Desk) - DPLA - 708598a959455c20ea7b234be97925f6.jpg"
+  },
+  "person-nimitz": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Fleet_Admiral_Chester_W._Nimitz_portrait.jpg",
+    "commons_title": "File:Fleet Admiral Chester W. Nimitz portrait.jpg"
+  },
+  "person-tojo": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Hideki_Tōjō_portrait_(cropped).jpg",
+    "commons_title": "File:Hideki Tōjō portrait (cropped).jpg"
+  },
+  "person-zhukov": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Zhukov-LIFE-1944-1945_cropped.jpg",
+    "commons_title": "File:Zhukov-LIFE-1944-1945 cropped.jpg"
+  },
+  "person-rommel": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Erwin-Rommel-1941_(2).jpg",
+    "commons_title": "File:Erwin-Rommel-1941 (2).jpg"
+  },
+  "person-guderian": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Heinz_Guderian_portrait_(cropped).jpg",
+    "commons_title": "File:Heinz Guderian portrait (cropped).jpg"
+  },
+  "battle-barbarossa": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-berlin": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-france": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-moscow": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-normandy": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-pearl": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-poland": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "earth_atmos_2048": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-yamato": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  }
+};

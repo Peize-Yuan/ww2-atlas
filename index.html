@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界大战 · 全球战争档案 | The World at War 1931—1945</title>
+<meta name="description" content="一个可交互的第二次世界大战全球档案：3D 地球作战室、战役年表、装备解剖、人物与国家替身面板、著名事件与战争记忆。">
+<meta name="theme-color" content="#0b0a08">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="preloader" class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__stamp">CLASSIFIED / 绝密</div>
+    <div class="preloader__title">WAR ARCHIVE</div>
+    <div class="preloader__cn">全球战争档案 · 正在解密</div>
+    <div class="preloader__bar"><span id="preload-bar"></span></div>
+    <div class="preloader__meta"><span>FILE 1931—1945</span><span id="preload-pct">00%</span></div>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<header class="site-header" id="site-header">
+  <a class="brand" href="#top" aria-label="回到首页">
+    <span class="brand__mark">
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="22" cy="22" r="4.2" fill="currentColor"/>
+        <path d="M22 1v10M22 33v10M1 22h10M33 22h10" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M9 9l6 6M35 9l-6 6M9 35l6-6M35 35l-6-6" stroke="currentColor" stroke-width=".8" opacity=".55"/>
+      </svg>
+    </span>
+    <span class="brand__text"><b>WAR ARCHIVE</b><small>全球战争档案</small></span>
+  </a>
+  <nav class="main-nav" id="main-nav" aria-label="主导航">
+    <a href="#overview" data-nav="overview">全景</a>
+    <a href="#timeline" data-nav="timeline">年表</a>
+    <a href="#battles" data-nav="battles">战役</a>
+    <a href="#equipment" data-nav="equipment">装备</a>
+    <a href="#people" data-nav="people">人物</a>
+    <a href="#countries" data-nav="countries">国家</a>
+    <a href="#events" data-nav="events">事件</a>
+    <a href="#situation" data-nav="situation">态势</a>
+    <a href="#legacy" data-nav="legacy">遗产</a>
+  </nav>
+  <div class="header-tools">
+    <button class="icon-btn" id="search-open" type="button" aria-label="搜索档案">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="1.5"/></svg>
+      <span class="icon-btn__key">⌘K</span>
+    </button>
+    <button class="icon-btn sound-btn" id="sound-toggle" type="button" aria-label="开启环境音" aria-pressed="false">
+      <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="sound-label">SOUND OFF</span>
+    </button>
+    <button class="menu-btn" id="menu-open" type="button" aria-label="打开菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="header-progress" id="header-progress"></div>
+</header>
+
+<aside class="chapter-rail" aria-label="章节索引">
+  <div class="chapter-rail__line"></div>
+  <a href="#top" data-section-dot="top" class="is-active"><i></i><span>00</span></a>
+  <a href="#overview" data-section-dot="overview"><i></i><span>01</span></a>
+  <a href="#timeline" data-section-dot="timeline"><i></i><span>02</span></a>
+  <a href="#battles" data-section-dot="battles"><i></i><span>03</span></a>
+  <a href="#equipment" data-section-dot="equipment"><i></i><span>04</span></a>
+  <a href="#people" data-section-dot="people"><i></i><span>05</span></a>
+  <a href="#countries" data-section-dot="countries"><i></i><span>06</span></a>
+  <a href="#events" data-section-dot="events"><i></i><span>07</span></a>
+  <a href="#situation" data-section-dot="situation"><i></i><span>08</span></a>
+  <a href="#legacy" data-section-dot="legacy"><i></i><span>09</span></a>
+</aside>
+
+<main>
+<section class="hero" id="top" data-section="top">
+  <div class="hero__backdrop" aria-hidden="true"></div>
+  <div class="hero__stage" id="globe-stage">
+    <canvas id="globe-canvas" aria-label="可拖拽旋转的三维地球，标记二战关键战场"></canvas>
+    <div class="hero__reticle" aria-hidden="true">
+      <span class="reticle__ring reticle__ring--1"></span>
+      <span class="reticle__ring reticle__ring--2"></span>
+      <span class="reticle__cross reticle__cross--x"></span>
+      <span class="reticle__cross reticle__cross--y"></span>
+    </div>
+    <div class="globe-tooltip" id="globe-tooltip" role="status">
+      <span class="globe-tooltip__type">BATTLE</span>
+      <b></b>
+      <small></small>
+    </div>
+    <div class="globe-fallback" id="globe-fallback" hidden>
+      <div class="globe-fallback__orb"></div>
+      <p>3D 地球需要 WebGL。你仍可浏览全部档案内容。</p>
+    </div>
+  </div>
+
+  <div class="hero__topline">
+    <span>THE WORLD AT WAR · A GLOBAL ARCHIVE</span>
+    <span class="hero__topline-right">50.4501° N / 30.5234° E <i></i> KYIV SIGNAL 07</span>
+  </div>
+
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <div class="hero__eyebrow reveal">
+        <span class="stamp">CLASSIFIED</span>
+        <span>绝密 / 全球冲突档案</span>
+        <span class="hero__eyebrow-line"></span>
+        <span>FILE 1931—1945</span>
+      </div>
+      <h1 class="hero__title reveal">
+        <span class="hero__title-cn">第二次<br>世界大战</span>
+        <span class="hero__title-en">THE WORLD<br><em>AT WAR</em></span>
+      </h1>
+      <p class="hero__lead reveal">从九一八的枪声到密苏里号的签字。14 年，70 多个国家，约 1 亿军人，数千万条生命。这里不是胜利者的纪念碑，而是一份可以旋转、放大、追问的全球战争档案。</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary" href="#overview"><span>进入战争档案</span><i>↓</i></a>
+        <button class="btn btn--ghost" type="button" id="hero-play"><span>自动巡航地球</span><i>◉</i></button>
+      </div>
+      <div class="hero__meta reveal">
+        <span><b>05</b> 主要战区</span>
+        <span><b>76</b> 份档案</span>
+        <span><b>21</b> 件装备</span>
+        <span><b>18</b> 位人物</span>
+      </div>
+    </div>
+
+    <aside class="hero__aside reveal" aria-label="全球态势面板">
+      <div class="hud">
+        <div class="hud__head">
+          <span>GLOBAL SITUATION</span>
+          <span class="live-dot">LIVE</span>
+        </div>
+        <div class="hud__title">全球态势 / 1939—1945</div>
+        <div class="hud__stats">
+          <div><span>ACTIVE THEATRES</span><b>05</b><small>欧洲 · 东线 · 北非 · 太平洋 · 亚洲</small></div>
+          <div><span>COUNTRIES INVOLVED</span><b>70+</b><small>含殖民地与自治领</small></div>
+          <div><span>DAYS OF WAR</span><b>2,194</b><small>欧洲战争 1939.09—1945.09</small></div>
+        </div>
+        <div class="hud__divider"><span>KEY CONTACTS / 关键节点</span></div>
+        <div class="marker-list" id="marker-list">
+          <button type="button" data-marker="battle-stalingrad"><i class="dot dot--red"></i><span>斯大林格勒</span><small>1942—43</small></button>
+          <button type="button" data-marker="battle-normandy"><i class="dot dot--amber"></i><span>诺曼底</span><small>1944</small></button>
+          <button type="button" data-marker="battle-midway"><i class="dot dot--blue"></i><span>中途岛</span><small>1942</small></button>
+          <button type="button" data-marker="battle-berlin"><i class="dot dot--red"></i><span>柏林</span><small>1945</small></button>
+        </div>
+        <div class="hud__foot">
+          <span>拖拽旋转 · 滚轮缩放 · 点击光点</span>
+          <span class="hud__coords">51°30′N 0°07′W</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="globe-controls" aria-label="地球控制">
+    <button type="button" data-globe-action="zoom-in" aria-label="放大">＋</button>
+    <button type="button" data-globe-action="zoom-out" aria-label="缩小">−</button>
+    <button type="button" data-globe-action="reset" aria-label="复位视角">↺</button>
+    <button type="button" data-globe-action="toggle-rotate" aria-label="暂停或继续旋转">Ⅱ</button>
+  </div>
+  <div class="globe-legend" aria-label="地球图例">
+    <span><i class="dot dot--red"></i> 轴心 / 关键战役</span>
+    <span><i class="dot dot--blue"></i> 同盟 / 关键节点</span>
+    <span><i class="dot dot--amber"></i> 事件</span>
+  </div>
+
+  <div class="hero__footer">
+    <div class="hero__ticker">
+      <span class="hero__ticker-label">FRONT LINE BULLETIN</span>
+      <div class="ticker-window">
+        <div class="ticker-track" id="ticker-track">
+          <span>1939.09.01 德国入侵波兰，欧洲战争爆发</span>
+          <span>1941.12.07 日本偷袭珍珠港，太平洋战争爆发</span>
+          <span>1943.02.02 德国第六集团军在斯大林格勒投降</span>
+          <span>1944.06.06 盟军登陆诺曼底</span>
+          <span>1945.09.02 日本签署投降书，二战结束</span>
+        </div>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#overview"><span>SCROLL TO DECRYPT</span><i></i></a>
+  </div>
+</section>
+
+<section class="section section--overview" id="overview" data-section="overview">
+  <div class="section-head">
+    <div class="section-kicker"><span>01</span> ORIENTATION / 全景</div>
+    <h2 class="section-title">这不是一场<br><em>只属于士兵</em>的战争</h2>
+    <p class="section-desc">二次大战是一场总体战：前线与后方、工厂与农田、实验室与广播电台、士兵与平民，都被卷入同一台机器。理解它，必须同时看到宏大的战略与具体的人的命运。</p>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-lede reveal">
+      <div class="drop-cap">1931</div>
+      <p>这一年，日本关东军在中国东北发动九一八事变。六年后的卢沟桥，战争扩大为全民族抗战；1939年，德国入侵波兰，欧洲战争爆发；1941年，德国进攻苏联、日本偷袭珍珠港，战争真正覆盖全球。</p>
+      <p>到1945年，超过7000万人死亡，其中约三分之二是平民。南京、斯大林格勒、奥斯维辛、广岛、柏林——这些地名既属于战场，也属于人类暴行的坐标。二战的结局不是简单的“正义战胜邪恶”，而是反法西斯同盟、工业动员、殖民体系瓦解与核武器诞生共同塑造的新世界。</p>
+      <div class="signature">ARCHIVE EDITORIAL / 全球战争档案编辑部</div>
+    </div>
+    <figure class="overview-photo reveal">
+      <div class="photo-frame">
+        <img src="assets/images/battle-stalingrad.jpg" alt="斯大林格勒战役废墟" loading="lazy" onerror="this.closest('.photo-frame').classList.add('is-missing')">
+        <span class="photo-index">PLATE 01</span>
+        <span class="photo-caption">战争不是一条时间线，而是一张彼此牵连的网。</span>
+      </div>
+      <figcaption>历史影像 · Wikimedia Commons <span>▼</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="stat-band reveal">
+    <div class="stat-band__intro"><span>THE BALANCE OF CATASTROPHE</span><b>灾难的账本</b><small>数字因统计口径不同而存在差异</small></div>
+    <div class="stat"><b data-count="70" data-suffix="+">0</b><span>参战国与地区</span><small>含殖民地、自治领与傀儡政权</small></div>
+    <div class="stat"><b data-count="1.1" data-suffix="亿">0</b><span>被动员军人</span><small>约数，全球武装力量</small></div>
+    <div class="stat"><b data-count="8500" data-suffix="万">0</b><span>死亡人数上限</span><small>7000万—8500万，平民占多数</small></div>
+    <div class="stat"><b data-count="600" data-suffix="万">0</b><span>犹太人遇难</span><small>约占欧洲犹太人口三分之二</small></div>
+  </div>
+
+  <div class="theatre-head reveal">
+    <div><span>THEATRES OF WAR</span><h3>五张彼此撕扯的战场</h3></div>
+    <p>二战不是一场战役的放大版。不同战区有不同地理、后勤与政治逻辑，却在同一时间相互牵制。点击任一战场，查看对应档案。</p>
+  </div>
+  <div class="theatre-grid" id="theatre-grid">
+    <a class="theatre-card theatre-card--europe reveal" href="#battles" data-filter-jump="欧洲">
+      <img class="theatre-card__img" src="assets/images/battle-normandy.jpg" alt="" loading="lazy" onerror="this.remove()">
+      <span class="theatre-card__shade"></span>
+      <span class="theatre-card__index">01</span>
+      <span class="theatre-card__years">1939—1945</span>
+      <h3>欧洲与西线</h3>
+      <p>从波兰到诺曼底，从闪电战到莱茵河。西欧的战争是工业、装甲与联盟政治的极限试验。</p>
+      <span class="theatre-card__link">查看战役 ↗</span>
+      <span class="theatre-card__bg">EUROPE</span>
+    </a>
+    <a class="theatre-card theatre-card--east reveal" href="#battles" data-filter-jump="东线">
+      <img class="theatre-card__img" src="assets/images/battle-stalingrad.jpg" alt="" loading="lazy" onerror="this.remove()">
+      <span class="theatre-card__shade"></span>
+      <span class="theatre-card__index">02</span>
+      <span class="theatre-card__years">1941—1945</span>
+      <h3>苏德东线</h3>
+      <p>人类历史上最庞大的陆上战场。斯大林格勒、库尔斯克、巴格拉季昂，决定了纳粹德国的命运。</p>
+      <span class="theatre-card__link">查看战役 ↗</span>
+      <span class="theatre-card__bg">EASTERN FRONT</span>
+    </a>
+    <a class="theatre-card theatre-card--pacific reveal" href="#battles" data-filter-jump="太平洋">
+      <img class="theatre-card__img" src="assets/images/battle-pearl.jpg" alt="" loading="lazy" onerror="this.remove()">
+      <span class="theatre-card__shade"></span>
+      <span class="theatre-card__index">03</span>
+      <span class="theatre-card__years">1941—1945</span>
+      <h3>太平洋</h3>
+      <p>航母、岛屿、潜艇与神风特攻。海权与制空权的更替，在珊瑚海与莱特湾之间完成。</p>
+      <span class="theatre-card__link">查看战役 ↗</span>
+      <span class="theatre-card__bg">PACIFIC</span>
+    </a>
+    <a class="theatre-card theatre-card--asia reveal" href="#battles" data-filter-jump="亚洲">
+      <span class="theatre-card__index">04</span>
+      <span class="theatre-card__years">1931—1945</span>
+      <h3>中国与亚洲大陆</h3>
+      <p>十四年抗战，中国以极其薄弱的工业拖住日本陆军主力。滇缅公路、驼峰航线与敌后根据地构成另一条战线。</p>
+      <span class="theatre-card__link">查看战役 ↗</span>
+      <span class="theatre-card__bg">ASIA</span>
+    </a>
+    <a class="theatre-card theatre-card--africa reveal" href="#battles" data-filter-jump="北非">
+      <img class="theatre-card__img" src="assets/images/battle-elalamein.jpg" alt="" loading="lazy" onerror="this.remove()">
+      <span class="theatre-card__shade"></span>
+      <span class="theatre-card__index">05</span>
+      <span class="theatre-card__years">1940—1943</span>
+      <h3>北非与地中海</h3>
+      <p>隆美尔与蒙哥马利的沙漠对决，托布鲁克与阿拉曼，随后是西西里与意大利的漫长战线。</p>
+      <span class="theatre-card__link">查看战役 ↗</span>
+      <span class="theatre-card__bg">MEDITERRANEAN</span>
+    </a>
+  </div>
+
+  <div class="totalwar reveal">
+    <figure class="totalwar__photo">
+      <img src="assets/images/battle-britain.jpg" alt="不列颠空战中的喷火战斗机" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')">
+      <figcaption><span>AIR WAR / HOME FRONT</span> 空战背后，是工厂、雷达与整个社会的动员。</figcaption>
+    </figure>
+    <div class="totalwar__copy">
+      <div class="section-kicker section-kicker--small"><span>02</span> TOTAL WAR / 总体战</div>
+      <h3>当工厂、厨房与课堂<br>都成为战争的一部分</h3>
+      <p>二战是第一次真正意义上的“总体战”。国家动员的不只是军队，还有粮食、燃料、钢铁、科学、宣传与每一个家庭的日常。女性进入军工厂，儿童参与收集废金属，城市实行配给与灯火管制；殖民地在没有选择的情况下被拖入战争，数千万劳工与士兵由此改变了帝国与被殖民地的关系。</p>
+      <div class="totalwar__pillars">
+        <div><b>01</b><span>工业动员</span><small>自由轮、坦克、飞机与合成燃料</small></div>
+        <div><b>02</b><span>科学战争</span><small>雷达、密码、运筹学、核武器</small></div>
+        <div><b>03</b><span>平民前线</span><small>轰炸、占领、抵抗与种族灭绝</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--timeline" id="timeline" data-section="timeline">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>02</span> CHRONOLOGY / 年表</div>
+      <h2 class="section-title">十四年，<em>一条燃烧的线</em></h2>
+    </div>
+    <p class="section-desc">从1931年九一八到1945年密苏里号签字。选择年份，查看当年的关键转折。带有下划线的事件可以打开完整档案。</p>
+  </div>
+
+  <div class="timeline-ui reveal">
+    <div class="year-tabs" id="year-tabs" role="tablist" aria-label="年份筛选"></div>
+    <div class="timeline-tools">
+      <button class="text-btn" id="timeline-all" type="button">查看全部年份 <span>↗</span></button>
+      <span class="timeline-count" id="timeline-count">31 ENTRIES</span>
+    </div>
+  </div>
+
+  <div class="timeline-layout">
+    <aside class="timeline-side reveal">
+      <div class="timeline-side__year" id="timeline-year">1942</div>
+      <p id="timeline-year-copy">战争的转折之年：中途岛、斯大林格勒与阿拉曼，把轴心的扩张推到了极限。</p>
+      <div class="timeline-vertical" id="timeline-vertical"></div>
+      <div class="timeline-side__note"><span>NOTE</span> 二战起点存在不同界定：欧洲战场通常以1939年9月1日德国入侵波兰为起点；中国抗战与全球史视角常从1931年九一八事变算起。</div>
+    </aside>
+    <div class="timeline-feed" id="timeline-feed" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section section--battles" id="battles" data-section="battles">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>03</span> BATTLEFILES / 战役</div>
+      <h2 class="section-title">在废墟与海面<br><em>决定世界走向</em></h2>
+    </div>
+    <p class="section-desc">18 场关键战役与行动。每一份档案包含时间、地点、双方兵力、伤亡、战略意义与六维战况面板。</p>
+  </div>
+
+  <div class="filter-row" data-filter-group="battles">
+    <div class="filter-label">THEATRE / 战区</div>
+    <div class="filter-btns" id="battle-filters">
+      <button class="is-active" data-filter="全部" type="button">全部 <small>18</small></button>
+      <button data-filter="欧洲" type="button">欧洲 <small>05</small></button>
+      <button data-filter="东线" type="button">东线 <small>06</small></button>
+      <button data-filter="太平洋" type="button">太平洋 <small>05</small></button>
+      <button data-filter="北非" type="button">北非 <small>01</small></button>
+      <button data-filter="亚洲" type="button">亚洲 <small>01</small></button>
+    </div>
+  </div>
+  <div class="battle-feature-wrap" id="battle-feature"></div>
+  <div class="card-grid card-grid--battles" id="battles-grid"></div>
+  <div class="load-note"><span>18 FILES / 1937—1945</span><span>点击卡片解密完整战役档案</span></div>
+</section>
+
+<section class="section section--equipment" id="equipment" data-section="equipment">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>04</span> ORDNANCE / 装备</div>
+      <h2 class="section-title">钢铁的侧面<br><em>也是战争的侧面</em></h2>
+    </div>
+    <p class="section-desc">21 件改变战局的装备。先在三维解剖台上旋转它们，再打开档案，查看参数、战史与六维性能雷达。</p>
+  </div>
+
+  <div class="exhibit reveal" id="exhibit">
+    <div class="exhibit__stage-wrap">
+      <canvas id="exhibit-canvas" aria-label="可旋转的三维装备模型"></canvas>
+      <div class="exhibit__grid" aria-hidden="true"></div>
+      <div class="exhibit__callouts" id="exhibit-callouts"></div>
+      <div class="exhibit__status"><span class="live-dot">3D</span><span id="exhibit-status">T-34 / LIVE MODEL</span></div>
+      <div class="exhibit__hint">拖拽旋转 · 滚轮缩放</div>
+    </div>
+    <div class="exhibit__panel">
+      <div class="exhibit__head">
+        <span>3D ORDNANCE LAB</span>
+        <span>01 / 04</span>
+      </div>
+      <h3 id="exhibit-name">T-34 中型坦克</h3>
+      <div class="exhibit__en" id="exhibit-en">T-34 MEDIUM TANK</div>
+      <p id="exhibit-desc">倾斜装甲、宽履带与柴油机，把坦克设计带进现代。拖动模型，检查它的轮廓与炮塔。</p>
+      <div class="exhibit__tabs" id="exhibit-tabs">
+        <button class="is-active" data-exhibit="t34" type="button"><span>01</span> T-34</button>
+        <button data-exhibit="tiger" type="button"><span>02</span> TIGER I</button>
+        <button data-exhibit="spitfire" type="button"><span>03</span> SPITFIRE</button>
+        <button data-exhibit="yamato" type="button"><span>04</span> YAMATO</button>
+      </div>
+      <div class="exhibit__actions">
+        <button class="btn btn--small btn--ghost" id="exhibit-wire" type="button">蓝图模式 <span>◇</span></button>
+        <button class="btn btn--small btn--primary" id="exhibit-open" type="button">打开装备档案 <span>↗</span></button>
+      </div>
+      <div class="exhibit__specs" id="exhibit-specs"></div>
+    </div>
+  </div>
+
+  <div class="filter-row" data-filter-group="equipment">
+    <div class="filter-label">CATEGORY / 类别</div>
+    <div class="filter-btns" id="equipment-filters">
+      <button class="is-active" data-filter="全部" type="button">全部 <small>21</small></button>
+      <button data-filter="装甲" type="button">装甲 <small>05</small></button>
+      <button data-filter="战机" type="button">战机 <small>07</small></button>
+      <button data-filter="舰艇" type="button">舰艇 <small>04</small></button>
+      <button data-filter="步兵" type="button">步兵 <small>03</small></button>
+      <button data-filter="特种" type="button">特种 <small>02</small></button>
+    </div>
+  </div>
+  <div class="card-grid card-grid--equipment" id="equipment-grid"></div>
+  <div class="load-note"><span>21 FILES / 1939—1945</span><span>雷达图为叙事性比较，不是精确性能数据</span></div>
+</section>
+
+<section class="section section--people" id="people" data-section="people">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>05</span> FIGURES / 人物</div>
+      <h2 class="section-title">决策者的面孔<br><em>与普通人的命运</em></h2>
+    </div>
+    <p class="section-desc">18 位政治与军事人物。替身面板以“战略、战术、指挥、动员、影响、争议”六维呈现，不是道德评分，也不为暴行开脱。</p>
+  </div>
+
+  <div class="filter-row" data-filter-group="people">
+    <div class="filter-label">SIDE / 阵营</div>
+    <div class="filter-btns" id="people-filters">
+      <button class="is-active" data-filter="全部" type="button">全部 <small>18</small></button>
+      <button data-filter="allied" type="button">同盟国 <small>11</small></button>
+      <button data-filter="axis" type="button">轴心国 <small>07</small></button>
+      <button data-filter="leader" type="button">政治领袖 <small>09</small></button>
+      <button data-filter="commander" type="button">军事将领 <small>09</small></button>
+    </div>
+  </div>
+  <div class="people-grid" id="people-grid"></div>
+  <div class="load-note"><span>18 FILES / 1880—1976</span><span>争议度越高，代表历史评价分歧或战争责任越重</span></div>
+</section>
+
+<section class="section section--countries" id="countries" data-section="countries">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>06</span> NATIONS / 国家</div>
+      <h2 class="section-title">国家不是背景<br><em>它们也是参战者</em></h2>
+    </div>
+    <p class="section-desc">8 个主要参战国的战争动员、工业能力、人员代价与战略角色。每个国家都有六维国力面板和历史脉络。</p>
+  </div>
+
+  <div class="country-grid" id="country-grid"></div>
+  <div class="country-footnote reveal">
+    <span>ALSO IN THE WAR</span>
+    <p>波兰、加拿大、澳大利亚、新西兰、印度、巴西、南斯拉夫、希腊、荷兰、比利时、挪威、菲律宾等国家与地区，以及无数殖民地士兵、劳工与抵抗者，都在这场战争中付出了巨大代价。这里的 8 个国家只是主要参战国的切片。</p>
+  </div>
+</section>
+
+<section class="section section--events" id="events" data-section="events">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>07</span> DECLASSIFIED / 事件</div>
+      <h2 class="section-title">那些改变<br><em>战争语法</em>的时刻</h2>
+    </div>
+    <p class="section-desc">外交、背叛、核试验、国际审判。11 份档案，记录战争如何从边境冲突变成总体战，又如何在废墟上尝试建立秩序。</p>
+  </div>
+  <div class="event-grid" id="event-grid"></div>
+</section>
+
+<section class="section section--situation" id="situation" data-section="situation">
+  <div class="section-head section-head--row">
+    <div>
+      <div class="section-kicker"><span>08</span> SITUATION BOARD / 态势</div>
+      <h2 class="section-title">把地球<br><em>转回那几年</em></h2>
+    </div>
+    <p class="section-desc">选择年份，查看轴心国与同盟国的战略态势。地图为阵营与关键战场的示意，不是精确的领土控制图。</p>
+  </div>
+
+  <div class="situation-board reveal">
+    <div class="situation-board__top">
+      <div class="year-switch" id="situation-years" role="tablist" aria-label="态势年份"></div>
+      <div class="situation-legend">
+        <span><i class="swatch swatch--axis"></i>轴心国</span>
+        <span><i class="swatch swatch--allied"></i>同盟国</span>
+        <span><i class="swatch swatch--occupied"></i>被占领 / 分裂</span>
+        <span><i class="swatch swatch--neutral"></i>中立 / 其他</span>
+        <span><i class="swatch swatch--front"></i>关键战线</span>
+      </div>
+    </div>
+    <div class="situation-board__body">
+      <div class="map-wrap">
+        <canvas id="situation-map" aria-label="二战阵营与关键战场示意地图"></canvas>
+        <div class="map-coords">EQUIRECTANGULAR / SCHEMATIC</div>
+        <div class="map-vignette" aria-hidden="true"></div>
+        <div class="map-marks" id="situation-marks"></div>
+      </div>
+      <div class="situation-copy">
+        <div class="situation-copy__year" id="situation-year">1942</div>
+        <div class="situation-copy__kicker" id="situation-kicker">04 / THE LIMITS OF AXIS POWER</div>
+        <h3 id="situation-title">轴心的极限</h3>
+        <p class="situation-copy__lead" id="situation-lead"></p>
+        <div class="situation-block"><span>AXIS / 轴心</span><p id="situation-axis"></p></div>
+        <div class="situation-block"><span>ALLIED / 同盟</span><p id="situation-allied"></p></div>
+        <div class="situation-block"><span>TURNING POINT / 转折</span><p id="situation-turning"></p></div>
+        <div class="situation-focus"><span>FOCUS</span><b id="situation-focus">伏尔加河 · 太平洋</b></div>
+        <div class="situation-marks-list" id="situation-marks-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--legacy" id="legacy" data-section="legacy">
+  <div class="section-head">
+    <div class="section-kicker"><span>09</span> AFTERMATH / 遗产</div>
+    <h2 class="section-title">战争结束了<br><em>战争没有结束</em></h2>
+    <p class="section-desc">1945年不是终点。废墟上的审判、联合国的建立、殖民帝国的瓦解、核武器的阴影，以及数千万人的创伤，构成了我们仍然生活在其中的战后世界。</p>
+  </div>
+
+  <div class="legacy-hero">
+    <figure class="legacy-hero__photo reveal">
+      <img src="assets/images/battle-iwojima.jpg" alt="硫磺岛战役中的美国海军陆战队" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')">
+      <figcaption>硫磺岛 · 1945 <span>IMAGE / US MARINE CORPS</span></figcaption>
+    </figure>
+    <div class="legacy-hero__copy reveal">
+      <div class="big-quote">“</div>
+      <blockquote>在战争中，没有哪一代人能真正置身事外。我们记住死者，不是为了延续仇恨，而是为了辨认那些把人变成数字的机制。</blockquote>
+      <div class="legacy-stats">
+        <div><b>70—85m</b><span>死亡人数估计</span></div>
+        <div><b>2/3</b><span>平民占比</span></div>
+        <div><b>6m</b><span>犹太人遇难</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="aftermath-grid">
+    <article class="aftermath-card reveal">
+      <span class="aftermath-card__no">01</span>
+      <h3>纽伦堡与东京审判</h3>
+      <p>首次以国际法庭追究发动侵略战争与反人类罪的个人责任。“服从命令”不再是免责理由，但胜利者正义、战犯豁免与冷战政治也留下争议。</p>
+      <span class="aftermath-card__meta">1945—1948 / INTERNATIONAL LAW</span>
+    </article>
+    <article class="aftermath-card reveal">
+      <span class="aftermath-card__no">02</span>
+      <h3>联合国与战后秩序</h3>
+      <p>1945年联合国成立，安理会五常拥有否决权。布雷顿森林体系、马歇尔计划与北约逐步重塑世界经济与安全结构，也把世界推向冷战。</p>
+      <span class="aftermath-card__meta">1945— / GLOBAL ORDER</span>
+    </article>
+    <article class="aftermath-card reveal">
+      <span class="aftermath-card__no">03</span>
+      <h3>殖民帝国的黄昏</h3>
+      <p>印度、印尼、越南、阿尔及利亚、非洲各国相继独立。战争动员唤醒了民族自决意识，也暴露了帝国在道德与财政上的破产。</p>
+      <span class="aftermath-card__meta">1947—1975 / DECOLONIZATION</span>
+    </article>
+    <article class="aftermath-card reveal">
+      <span class="aftermath-card__no">04</span>
+      <h3>核武器与人类世</h3>
+      <p>广岛与长崎之后，核威慑成为大国政治的核心。人类第一次拥有在几分钟内毁灭自身文明的能力，军备控制与核伦理由此成为永久议题。</p>
+      <span class="aftermath-card__meta">1945— / NUCLEAR AGE</span>
+    </article>
+  </div>
+
+  <div class="memory-strip">
+    <figure class="reveal"><img src="assets/images/battle-kursk.jpg" alt="库尔斯克会战中的坦克" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')"><figcaption><span>1943</span>库尔斯克 · 钢铁的消耗</figcaption></figure>
+    <figure class="reveal"><img src="assets/images/battle-stalingrad.jpg" alt="斯大林格勒战役废墟" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')"><figcaption><span>1943</span>伏尔加河 · 废墟中的胜利</figcaption></figure>
+    <figure class="reveal"><img src="assets/images/battle-britain.jpg" alt="不列颠空战中的战斗机" loading="lazy" onerror="this.closest('figure').classList.add('is-missing')"><figcaption><span>1940</span>不列颠 · 天空的防线</figcaption></figure>
+    <div class="memory-text reveal">
+      <span>WHY WE REMEMBER</span>
+      <h3>记忆不是纪念碑，<br>而是一种持续的追问。</h3>
+      <p>谁被记住，谁被遗忘？谁被称作“解放者”，谁又被历史审判？这份档案不试图给出最终答案，只希望你把每一次点击，变成一次更具体的理解。</p>
+    </div>
+  </div>
+
+  <div class="sources reveal">
+    <div class="sources__head"><span>SOURCES / 资料与图像</span><span>OPEN ACCESS + MUSEUM ARCHIVES</span></div>
+    <div class="sources__list" id="sources-list"></div>
+    <p class="disclaimer">说明：本站为历史科普与视觉叙事项目，不是军事建议或学术论文。伤亡数字、装备参数与人物评价存在统计口径与史学争议；所有雷达图均为编辑性比较可视化，不代表精确量化。历史照片来自 Wikimedia Commons 等公共档案，版权与作者信息见各档案底部。涉及纳粹符号时，仅作历史批判性呈现，不宣扬任何法西斯、种族主义或仇恨意识形态。</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand"><b>WAR ARCHIVE</b><span>全球战争档案 / 1931—1945</span></div>
+    <div class="footer-links">
+      <a href="#top">回到顶部 ↑</a>
+      <a href="#battles">战役</a>
+      <a href="#equipment">装备</a>
+      <a href="#people">人物</a>
+      <a href="#countries">国家</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>AN INTERACTIVE HISTORICAL ARCHIVE · BUILT WITH THREE.JS</span>
+    <span>© 2026 / FOR EDUCATION & REMEMBRANCE</span>
+    <span class="footer-code">FILE NO. WW2-ARCHIVE-1945</span>
+  </div>
+</footer>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__head"><span>INDEX / 章节</span><button id="menu-close" type="button" aria-label="关闭菜单">×</button></div>
+  <nav>
+    <a href="#overview"><span>01</span>全景</a>
+    <a href="#timeline"><span>02</span>年表</a>
+    <a href="#battles"><span>03</span>战役</a>
+    <a href="#equipment"><span>04</span>装备</a>
+    <a href="#people"><span>05</span>人物</a>
+    <a href="#countries"><span>06</span>国家</a>
+    <a href="#events"><span>07</span>事件</a>
+    <a href="#situation"><span>08</span>态势</a>
+    <a href="#legacy"><span>09</span>遗产</a>
+  </nav>
+  <div class="mobile-menu__foot">1931—1945 · THE WORLD AT WAR</div>
+</div>
+
+<div class="search-overlay" id="search-overlay" aria-hidden="true">
+  <div class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="search-head">
+      <div><span>SEARCH THE ARCHIVE</span><h3 id="search-title">检索档案</h3></div>
+      <button type="button" id="search-close" aria-label="关闭搜索">×</button>
+    </div>
+    <div class="search-field">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="1.5"/></svg>
+      <input id="search-input" type="search" placeholder="搜索战役、装备、人物、国家、事件…" autocomplete="off" aria-label="搜索关键词">
+      <kbd>ESC</kbd>
+    </div>
+    <div class="search-suggest" id="search-suggest">
+      <span>热门检索</span>
+      <button type="button" data-search="斯大林格勒">斯大林格勒</button>
+      <button type="button" data-search="T-34">T-34</button>
+      <button type="button" data-search="隆美尔">隆美尔</button>
+      <button type="button" data-search="大屠杀">大屠杀</button>
+      <button type="button" data-search="中途岛">中途岛</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-foot"><span>↑↓ 选择 · ENTER 打开 · ESC 关闭</span><span>ARCHIVE INDEX / 76 FILES</span></div>
+  </div>
+</div>
+
+<div class="dossier-overlay" id="dossier-overlay" aria-hidden="true">
+  <div class="dossier" role="dialog" aria-modal="true" aria-labelledby="dossier-title">
+    <button class="dossier__close" id="dossier-close" type="button" aria-label="关闭档案">×</button>
+    <div class="dossier__scroll" id="dossier-scroll">
+      <div class="dossier__inner" id="dossier-content"></div>
+    </div>
+    <div class="dossier__edge"><span>DECLASSIFIED</span><span>WAR ARCHIVE</span></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/Pass.js"></script>
+<script src="assets/vendor/CopyShader.js"></script>
+<script src="assets/vendor/LuminosityHighPassShader.js"></script>
+<script src="assets/vendor/ShaderPass.js"></script>
+<script src="assets/vendor/MaskPass.js"></script>
+<script src="assets/vendor/EffectComposer.js"></script>
+<script src="assets/vendor/RenderPass.js"></script>
+<script src="assets/vendor/UnrealBloomPass.js"></script>
+<script src="js/data.core.js"></script>
+<script src="js/data.battles.js"></script>
+<script src="js/data.equipment.js"></script>
+<script src="js/data.people.js"></script>
+<script src="js/data.countries.js"></script>
+<script src="js/data.events.js"></script>
+<script src="js/world-dots.js"></script>
+<script src="js/credits.js"></script>
+<script src="js/globe.js"></script>
+<script src="js/exhibit.js"></script>
+<script src="js/situation.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

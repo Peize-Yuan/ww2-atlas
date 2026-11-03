@@ -1,0 +1,12 @@
+﻿# temporary deploy artifacts and secrets
+.deploy.env
+.deploy.env.*
+_candidates/
+_test/
+node_modules/
+dist/
+.wrangler/
+*.log
+Thumbs.db
+.DS_Store
+.deploy-tools/
