@@ -27,6 +27,17 @@ MANUAL = {
     "person-zhukov": "Zhukov-LIFE-1944-1945 cropped.jpg",
     "person-rommel": "Erwin-Rommel-1941 (2).jpg",
     "person-guderian": "Heinz Guderian portrait (cropped).jpg",
+    "person-yamamoto": "Isoroku Yamamoto Signed Portrait 30 Jan 1928.jpg",
+    "battle-shanghai": "A Chinese squad deployed outside Shanghai.jpg",
+    "battle-dunkirk": "Dunkirk 1940 HU1137.jpg",
+    "battle-okinawa": "Marine-patrol-okinawa-1945.jpg",
+    "battle-guadalcanal": "U.S. Marines storm ashore on Guadalcanal, 7 August 1942 (80-CF-112-5-3).jpg",
+    "eq-is2": "Танки ИС-2 у Рейхстага.jpg",
+    "eq-zero": "Mitsubishi A6M Zero X-133 in flight at PCDM 2009.JPG",
+    "eq-katyusha": "Katyusha Rocket Launcher - Artillery Museum - St. Petersburg - Russia.jpg",
+    "eq-enigma": "Bundesarchiv Bild 101II-MW-4222-02A, \"Enigma\" auf U-Boot U-124.jpg",
+    "eq-uboat": "German Type VII Submarine At Trondheim Norway, during World 2. (50191942432).jpg",
+    "event-munich": "Bundesarchiv Bild 183-R69173, Münchener Abkommen, Staatschefs.jpg",
 }
 
 
@@ -37,7 +48,7 @@ def commons_url(title: str) -> str:
 
 def main() -> None:
     credits: dict[str, dict] = {}
-    for p in (CAND / "manifest_selected.json", CAND / "manifest_rest.json"):
+    for p in (CAND / "manifest_selected.json", CAND / "manifest_rest.json", CAND / "missing_manifest.json"):
         if not p.exists():
             continue
         try:

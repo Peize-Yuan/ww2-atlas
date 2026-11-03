@@ -1,87 +1,177 @@
 {
-  "battle-britain": {
-    "artist": "Australian armed forces",
-    "license": "Public domain",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Spitfire_and_He_111_during_Battle_of_Britain_1940.jpg",
-    "commons_title": "File:Spitfire and He 111 during Battle of Britain 1940.jpg"
-  },
-  "battle-midway": {
-    "artist": "United States Army Air Forces (USAAF)",
-    "license": "Public domain",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Japanese_aircraft_carrier_S%C5%8Dry%C5%AB_underway_during_Battle_of_Midway_on_4_June_1942.jpg",
-    "commons_title": "File:Japanese aircraft carrier Sōryū underway during Battle of Midway on 4 June 1942.jpg"
-  },
-  "battle-stalingrad": {
-    "artist": "Zelma / Георгий Зельма",
-    "license": "CC BY-SA 3.0",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:RIAN_archive_602770_Battle_of_Stalingrad.jpg",
-    "commons_title": "File:RIAN archive 602770 Battle of Stalingrad.jpg"
-  },
-  "battle-kursk": {
-    "artist": "Red Army photographer?",
-    "license": "CC BY 4.0",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Soviet_M3_Lee_tanks_of_the_6th_Guards_Army_Kursk_July_1943.jpg",
-    "commons_title": "File:Soviet M3 Lee tanks of the 6th Guards Army Kursk July 1943.jpg"
-  },
-  "battle-bagration": {
-    "artist": "Kl833x9",
-    "license": "CC BY-SA 3.0",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Operation_bagration_battle_wizebsk_1944_june_22-27.png",
-    "commons_title": "File:Operation bagration battle wizebsk 1944 june 22-27.png"
-  },
-  "battle-iwojima": {
-    "artist": "Taken by a Fifth Marine Division photographer.",
-    "license": "Public domain",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marines_with_LVT(A)-5_in_Iwo_Jima_1945.jpg",
-    "commons_title": "File:Marines with LVT(A)-5 in Iwo Jima 1945.jpg"
-  },
-  "eq-tiger": {
+  "battle-shanghai": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ABundesarchiv_Bild_101I-571-1721-29%2C_Russland%2C_Panzer_VI_%28Tiger_I%29.jpg",
-    "commons_title": "File:Bundesarchiv Bild 101I-571-1721-29, Russland, Panzer VI (Tiger I).jpg"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:A_Chinese_squad_deployed_outside_Shanghai.jpg",
+    "commons_title": "File:A Chinese squad deployed outside Shanghai.jpg"
   },
-  "eq-sherman": {
+  "battle-elalamein": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ACrew_of_a_Sherman-tank_south_of_Vaucelles.jpg",
-    "commons_title": "File:Crew of a Sherman-tank south of Vaucelles.jpg"
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
   },
-  "eq-panther": {
+  "battle-dunkirk": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ACaptured_German_Panther_tank_crewman_1944.jpg",
-    "commons_title": "File:Captured German Panther tank crewman 1944.jpg"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Dunkirk_1940_HU1137.jpg",
+    "commons_title": "File:Dunkirk 1940 HU1137.jpg"
   },
-  "eq-t34": {
+  "battle-guadalcanal": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Tank_T-34.JPG",
-    "commons_title": "File:Tank T-34.JPG"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:U.S._Marines_storm_ashore_on_Guadalcanal,_7_August_1942_(80-CF-112-5-3).jpg",
+    "commons_title": "File:U.S. Marines storm ashore on Guadalcanal, 7 August 1942 (80-CF-112-5-3).jpg"
   },
-  "eq-spitfire": {
+  "battle-okinawa": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:602sqdn-spit1.jpg",
-    "commons_title": "File:602sqdn-spit1.jpg"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Marine-patrol-okinawa-1945.jpg",
+    "commons_title": "File:Marine-patrol-okinawa-1945.jpg"
   },
-  "eq-b17": {
+  "eq-bf109": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:B17-F-45-VE_%28cropped%29.jpg",
-    "commons_title": "File:B17-F-45-VE (cropped).jpg"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AMesserschmitt_Bf_109_E-1%2C_Gruppenadjutant_I._JG_76%2C_Bastogne%2C_Belgien%2C_Mitte_Mai_1940_%28a%29.jpg",
+    "commons_title": "File:Messerschmitt Bf 109 E-1, Gruppenadjutant I. JG 76, Bastogne, Belgien, Mitte Mai 1940 (a).jpg"
   },
-  "eq-il2": {
+  "eq-p51": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Ilyushin_IL-2_Sturmovik_at_Central_Air_Force_Museum_Monino_pic1_a.jpg",
-    "commons_title": "File:Ilyushin IL-2 Sturmovik at Central Air Force Museum Monino pic1 a.jpg"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ANorth_American_P-51_Mustang_of_the_52nd_FG_takes_off_from_Ghisonaccia_Alzitone_airfield%2C_Corsica%2C_France%2C_28_May_1944_%28148028024%29.jpg",
+    "commons_title": "File:North American P-51 Mustang of the 52nd FG takes off from Ghisonaccia Alzitone airfield, Corsica, France, 28 May 1944 (148028024).jpg"
   },
-  "eq-me262": {
+  "eq-zero": {
     "artist": "Wikimedia Commons",
     "license": "见 Commons 文件页",
-    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Messerschmitt_Me_262.jpg",
-    "commons_title": "File:Messerschmitt Me 262.jpg"
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mitsubishi_A6M_Zero_X-133_in_flight_at_PCDM_2009.JPG",
+    "commons_title": "File:Mitsubishi A6M Zero X-133 in flight at PCDM 2009.JPG"
+  },
+  "eq-bismarck": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ABundesarchiv_Bild_193-04-1-26%2C_Schlachtschiff_Bismarck.jpg",
+    "commons_title": "File:Bundesarchiv Bild 193-04-1-26, Schlachtschiff Bismarck.jpg"
+  },
+  "eq-is2": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Танки_ИС-2_у_Рейхстага.jpg",
+    "commons_title": "File:Танки ИС-2 у Рейхстага.jpg"
+  },
+  "eq-enterprise": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AFlight_deck_view_on_USS_Enterprise_%28CV-6%29_on_7_August_1942_%2880-G-7859%29.jpg",
+    "commons_title": "File:Flight deck view on USS Enterprise (CV-6) on 7 August 1942 (80-G-7859).jpg"
+  },
+  "eq-mg42": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ASC_293358_-_Pfc_Mike_Westby_of_Deerfield%2C_Wisconsin%2C_fires_a_German_MG_42_machine_gun_in_a_test_pit_at_an_Ordnance_Depot_in_Normandy%2C_France._%2850061824707%29.jpg",
+    "commons_title": "File:SC 293358 - Pfc Mike Westby of Deerfield, Wisconsin, fires a German MG 42 machine gun in a test pit at an Ordnance Depot in Normandy, France. (50061824707).jpg"
+  },
+  "eq-katyusha": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Katyusha_Rocket_Launcher_-_Artillery_Museum_-_St._Petersburg_-_Russia.jpg",
+    "commons_title": "File:Katyusha Rocket Launcher - Artillery Museum - St. Petersburg - Russia.jpg"
+  },
+  "eq-v2": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AV-2_Rocket_On_Meillerwagen.jpg",
+    "commons_title": "File:V-2 Rocket On Meillerwagen.jpg"
+  },
+  "eq-ppsh": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3APPSh-41_submachine_gun_%28Fallujah%2C_Iraq%29.jpg",
+    "commons_title": "File:PPSh-41 submachine gun (Fallujah, Iraq).jpg"
+  },
+  "eq-uboat": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:German_Type_VII_Submarine_At_Trondheim_Norway,_during_World_2._(50191942432).jpg",
+    "commons_title": "File:German Type VII Submarine At Trondheim Norway, during World 2. (50191942432).jpg"
+  },
+  "eq-enigma": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101II-MW-4222-02A,_\"Enigma\"_auf_U-Boot_U-124.jpg",
+    "commons_title": "File:Bundesarchiv Bild 101II-MW-4222-02A, \"Enigma\" auf U-Boot U-124.jpg"
+  },
+  "event-ribbentrop": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AAdolf_Hitler_-_Molotov-Ribbentrop_pact_at_Berghof_-_1939_%28242-EB-6-42C%29.jpg",
+    "commons_title": "File:Adolf Hitler - Molotov-Ribbentrop pact at Berghof - 1939 (242-EB-6-42C).jpg"
+  },
+  "event-munich": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-R69173,_Münchener_Abkommen,_Staatschefs.jpg",
+    "commons_title": "File:Bundesarchiv Bild 183-R69173, Münchener Abkommen, Staatschefs.jpg"
+  },
+  "event-winterwar": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AA_Finnish_Maxim_M-32_machine_gun_nest_during_the_Winter_War.jpg",
+    "commons_title": "File:A Finnish Maxim M-32 machine gun nest during the Winter War.jpg"
+  },
+  "event-nanjing": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ANanjing_Massacre_Memorial_%2810151828983%29.jpg",
+    "commons_title": "File:Nanjing Massacre Memorial (10151828983).jpg"
+  },
+  "event-holocaust": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AAuschwitz_II-Birkenau_%28main_gate%29.JPG",
+    "commons_title": "File:Auschwitz II-Birkenau (main gate).JPG"
+  },
+  "event-lendlease": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ALend_Lease_Bomber.jpg",
+    "commons_title": "File:Lend Lease Bomber.jpg"
+  },
+  "event-spain": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ARepublicanWoman1936GTaro.jpg",
+    "commons_title": "File:RepublicanWoman1936GTaro.jpg"
+  },
+  "event-yalta": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3AYalta_Conference_%28Churchill%2C_Roosevelt%2C_Stalin%29_%28B%26W%29.jpg",
+    "commons_title": "File:Yalta Conference (Churchill, Roosevelt, Stalin) (B&W).jpg"
+  },
+  "event-trinity": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ATrinity_Test_Fireball_16ms.jpg",
+    "commons_title": "File:Trinity Test Fireball 16ms.jpg"
+  },
+  "person-yamamoto": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Isoroku_Yamamoto_Signed_Portrait_30_Jan_1928.jpg",
+    "commons_title": "File:Isoroku Yamamoto Signed Portrait 30 Jan 1928.jpg"
+  },
+  "event-hiroshima": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3A20181111_Atomic_Bomb_Dome-5.jpg",
+    "commons_title": "File:20181111 Atomic Bomb Dome-5.jpg"
+  },
+  "event-nuremberg": {
+    "artist": "Wikimedia Commons",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File%3ADoctors%27_trial%2C_Nuremberg%2C_1946%E2%80%931947.jpg",
+    "commons_title": "File:Doctors' trial, Nuremberg, 1946–1947.jpg"
   },
   "person-roosevelt": {
     "artist": "Wikimedia Commons",
@@ -185,6 +275,12 @@
     "descriptionurl": "https://commons.wikimedia.org/wiki/File:Heinz_Guderian_portrait_(cropped).jpg",
     "commons_title": "File:Heinz Guderian portrait (cropped).jpg"
   },
+  "battle-bagration": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
   "battle-barbarossa": {
     "artist": "Wikimedia Commons / 公共历史档案",
     "license": "见 Commons 文件页",
@@ -197,7 +293,31 @@
     "descriptionurl": "https://commons.wikimedia.org/",
     "commons_title": ""
   },
+  "battle-britain": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
   "battle-france": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-iwojima": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-kursk": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "battle-midway": {
     "artist": "Wikimedia Commons / 公共历史档案",
     "license": "见 Commons 文件页",
     "descriptionurl": "https://commons.wikimedia.org/",
@@ -227,7 +347,61 @@
     "descriptionurl": "https://commons.wikimedia.org/",
     "commons_title": ""
   },
+  "battle-stalingrad": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
   "earth_atmos_2048": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-b17": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-il2": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-me262": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-panther": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-sherman": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-spitfire": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-t34": {
+    "artist": "Wikimedia Commons / 公共历史档案",
+    "license": "见 Commons 文件页",
+    "descriptionurl": "https://commons.wikimedia.org/",
+    "commons_title": ""
+  },
+  "eq-tiger": {
     "artist": "Wikimedia Commons / 公共历史档案",
     "license": "见 Commons 文件页",
     "descriptionurl": "https://commons.wikimedia.org/",
